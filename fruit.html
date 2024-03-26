@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Déli gyümölcsök</h2>
+        <label for="fruits">Neked melyik a kedvenced?</label>
+        <select id="fruits" onchange="userFruit()">
+            <option value="narancs">Narancs</option>
+            <option value="lime">Lime</option>
+            <option value="grepfruit">Grapefruit</option>
+            <option value="citrom">Citrom</option>
+            <option value="pomelo">Pomelo</option>
+            <option value="mandarin">Mandarin</option>
+        </select>
+
+        <div class="grid-container">
+            <img src="narancs.jpg" alt="">
+            <p>A narancs vagy édes narancs (Citrus sinensis), népies neve auranci, oránzs déligyümölcs a
+                citrusformák alcsaládjából. Nem azonos a keserű naranccsal (Citrus × aurantium), ami a pomelo
+                (Citrus maxima) és a mandarin (Citrus reticulata) hibridje.</p>
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <script>
+        function userFruit() {
+            let selected = document.getElementById('fruits').value
+            console.log(selected);
+
+        }
+        /*fruits.forEach(obj => {
+                document.getElementById('fruits').innerHTML+=`
+                <option value=${obj.id}>${obj.name}</option>
+                `
+            })*/
+    </script>
+</body>
+</html>
