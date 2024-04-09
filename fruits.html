@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Déli gyümölcsök</h1>
+        <label for="fruits">Neked melyik a kedvenced?</label>
+        <select id="fruits" onchange="userFruit()">
+            <option value="narancs">Narancs</option>
+            <option value="lime">Lime</option>
+            <option value="grepfruit">Grapefruit</option>
+            <option value="citrom">Citrom</option>
+            <option value="pomelo">Pomelo</option>
+            <option value="mandarin">Mandarin</option>
+        </select>
+
+        <div class="grid-container" id="fruitdiv">
+
+        </div>
+    </div>
+
+    
+
+    <script>
+        const fruits = [
+            {id: 'narancs', name: 'Narancs', description: `A narancs vagy édes narancs (Citrus sinensis), népies neve auranci, oránzs déligyümölcs a
+        citrusformák alcsaládjából. Nem azonos a keserű naranccsal (Citrus × aurantium), ami a pomelo
+        (Citrus maxima) és a mandarin (Citrus reticulata) hibridje.`, img: 'narancs.jpg'},
+
+            {id: 'lime', name: 'Lime', description: `A lime (ejtsd: lájm), savanyú citrom vagy zöldcitrom (Citrus aurantiifolia) ázsiai eredetű, a
+        rutafélék (Rutaceae) családjába tartozó citrusféle. A növényfajt és termését egyaránt így nevezik. A
+        lime gyümölcsöt íze miatt gyakran a citromhoz hasonlítják, de annál savanyúbb, jellegzetesebb,
+        mérete kisebb és színe jellemzően zöld.`, img: 'lime2.jpg'},
+
+            {id: 'grepfruit', name: 'Grapefruit', description: `A grépfrút (Citrus x paradisi), angolos írásmód szerint grapefruit, más néven citrancs a citrusformák
+        legfiatalabb tagja. Az 1750-es években fedezték fel, valószínűleg Barbadoson. A pomelo (Citrus
+        grandis) és a narancs (Citrus sinensis) hibridjeként alakult ki, bár az elsőhöz közelebb áll.`, img: 'grapefruit.jpg'},
+
+            {id: 'citrom', name: 'Citrom', description: `A citrom, más néven közönséges citrom, valódi citrom vagy európai citrom[1] (Citrus × limon) a
+        citrusformák (Citroideae) alcsaládjába tartozó Citrus nemzetség egyik növényfaja. Termése, melyet
+        szintén citromnak hívnak, déligyümölcs és egyben fűszer is.`, img: 'citrom.jpg'},
+
+            {id: 'pomelo', name: 'Pomelo', description: `A pomelo vagy pummelo (avagy középső gyümölcs) (latin: Citrus grandis, binomiális név: Citrus maxima)
+        a rutafélék családjába tartozó, valószínűleg Malajziában és Polinéziában őshonos déligyümölcs.`, img: 'pomelo.jpg'},
+
+            {id: 'mandarin', name: 'Mandarin', description: `A mandarin (Citrus reticulata) a citrusformák közé tartozó déligyümölcs. Dél-Kínából származik,
+        Európába csak a 19. században kezdték beszállítani.`, img: 'mandarin.jpg'},
+        ];
+
+        const selected = document.getElementById('fruits');
+        let options = ''
+        for (let i = 0; i < fruits.length; i++) {
+            options += `<option value="${fruits[i].id}">${fruits[i].name}</option>`;
+        }
+        selectElement.innerHTML = optionsHTML;
+
+        function userFruit() {
+            let selectid = document.getElementById('fruits').value;
+            let fruit = fruits.find(f => f.id === selectid);
+            if (fruit) {
+                document.getElementById('fruitdiv').innerHTML = `
+                    <img src="${fruit.img}" alt="${fruit.name}">
+                    <p>${fruit.description}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
